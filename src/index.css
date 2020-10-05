@@ -104,6 +104,10 @@ ul {
 
 /* activities elements CSS */ 
 
+.card__activities {
+  margin-bottom: 50px !important; 
+}
+
 .activity__all {
   margin-bottom: -10px; 
 }
@@ -147,23 +151,26 @@ ul {
 }
 
 .addtodo__btn {
-  background: #fff;
+  background: #6369b0;
   border: none;
   outline: none;
-  color: #1A1C36;
+  color: #fff;
   font-family: 'Noto Sans JP';
-  font-weight: 600; 
-  padding: 10px 30px; 
+  padding: 10px 0; 
+  width: 15vw;
+  min-width: 150px; 
   border-radius: 15px; 
   cursor: pointer;
   position: absolute;
   top: 20px; 
   display: flex; 
   align-items: center;
+  justify-content: center;
+  font-size: 16px;
 }
 
 .addtodo__icon {
-  font-size: 20px; 
+  font-size: 22px; 
   margin-right: 5px;
   display: flex; 
 }

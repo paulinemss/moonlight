@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from './components/Card';
 import Greeting from './components/Greeting';
 import MoonCard from './components/MoonCard'; 
 import Activities from './components/Activities';
@@ -102,19 +101,20 @@ class App extends React.Component {
         </div>
         <div className='column'>
           <Greeting 
+            now={this.state.now}
             username='Pauline'
           />
-          <Card>
+          <div className='card__wrapper card__activities'>
             <Activities 
               now={this.state.now}
               moonPhase={this.state.moonPhase}
               todos={data[this.state.moonPhase]["todos"]}
             />
-          </Card>
-          <Card>
+          </div>
+          <div className='card__wrapper'>
             <h2>Next Full Moon</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa.</p>
-          </Card>
+          </div>
         </div>
       </div>
     );
