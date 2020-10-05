@@ -105,7 +105,11 @@ class App extends React.Component {
             username='Pauline'
           />
           <Card>
-            <Activities />
+            <Activities 
+              now={this.state.now}
+              moonPhase={this.state.moonPhase}
+              todos={data[this.state.moonPhase]["todos"]}
+            />
           </Card>
           <Card>
             <h2>Next Full Moon</h2>

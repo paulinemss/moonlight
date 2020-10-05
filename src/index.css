@@ -9,6 +9,8 @@ body {
   overflow: hidden;  
 }
 
+/* default settings */
+
 h1, h2, h3, p {
   margin: 0;
 }
@@ -26,6 +28,14 @@ p {
   letter-spacing: 0.03rem;
   line-height: 1.7;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* main elements CSS */ 
 
 .app {
   display: flex; 
@@ -51,6 +61,8 @@ p {
   flex-direction: column;
 }
 
+/* moon elements CSS */ 
+
 .mooncard__wrapper {
   background: url('assets/background-large.png') #35396A no-repeat;
   background-position: top; 
@@ -67,18 +79,20 @@ p {
 .moon__wrapper {
   display: flex; 
   justify-content: center;
-  margin-bottom: -10px; 
+  margin-bottom: -20px; 
 }
 
 .moon__image {
-  width: 50vw;
-  height: 50vw; 
-  background: url('assets/moon.png') no-repeat;
+  width: 45vw;
+  height: 45vw; 
+  background: url('assets/full-moon.png') no-repeat;
   background-position: top; 
   background-size: 100%; 
   position: absolute;
-  top: 30px; 
+  top: 40px; 
 }
+
+/* greetings elements CSS */ 
 
 .greeting__wrapper {
   padding: 30px;
@@ -86,4 +100,70 @@ p {
 
 .greeting__username {
   color: #F8C55A; 
+}
+
+/* activities elements CSS */ 
+
+.activity__all {
+  margin-bottom: -10px; 
+}
+
+.activity__line {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 10px; 
+}
+
+.checkbox__wrapper {
+  display: flex;
+  margin-right: 10px;
+}
+
+.checkbox__btn {
+  background: none; 
+  border: none; 
+  outline: none; 
+  color: #fff;
+  font-size: 24px; 
+  cursor: pointer;
+  padding: 0; 
+  display: flex; 
+}
+
+.checkbox__btn:focus {
+  transform: scale(1.2);
+}
+
+.checked {
+  color: #F8C55A;
+}
+
+.addtodo__wrapper {
+  display: flex;
+  justify-content: center;
+  height: 15px; 
+  position: relative;
+}
+
+.addtodo__btn {
+  background: #fff;
+  border: none;
+  outline: none;
+  color: #1A1C36;
+  font-family: 'Noto Sans JP';
+  font-weight: 600; 
+  padding: 10px 30px; 
+  border-radius: 15px; 
+  cursor: pointer;
+  position: absolute;
+  top: 20px; 
+  display: flex; 
+  align-items: center;
+}
+
+.addtodo__icon {
+  font-size: 20px; 
+  margin-right: 5px;
+  display: flex; 
 }
