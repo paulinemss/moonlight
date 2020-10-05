@@ -12,7 +12,11 @@ const data = {
       "Plan for a new activity that you've been willing to try.",
       "Start a journal to write about your new journey.",
       "Read inspirational quotes.",
-      "Take a close friend out to lunch and share your ideas and dreams."
+      "Take a close friend out to lunch and share your ideas and dreams.",
+      "Go to a museum in your city or look up artwork online.",
+      "Change your bed sheets and pillowcases.",
+      "Go somewhere you’ve never visited before.",
+      "Meditate on this mantra: 'I am strong, I am powerful, I am calm, I can do anything.’"
     ]
   },
   "waxingCrescent": {
@@ -26,7 +30,7 @@ const data = {
       "What is the first step you can take towards your dream?",
       "Take another route to work, or do a routine differently.",
       "Manifest money, wealth and abundance by budgeting the next month.",
-      "Meditate on self-love affirmations such as 'I am enough'."
+      "Meditate on this mantra: ‘I am so much more than my mind allows me to believe.’"
     ]
   },
   "firstQuarter": {
@@ -39,7 +43,10 @@ const data = {
       "Use the waxing moon energy to tackle the tasks you've been avoiding.",
       "Address any challenges that are coming up.",
       "Go to bed early and wake up before the sunrise.",
-      "Reward yourself for completing small tasks."
+      "Reward yourself for completing small tasks.",
+      "Go for a hike or long walk in your area.",
+      "Open the window and take a big breath of fresh air.",
+      "Meditate on this mantra: ‘I am in the process of a positive change in my life.’"
     ]
   },
   "waxingGibbous": {
@@ -53,7 +60,9 @@ const data = {
       "Double-check that you are going in the right direction.",
       "Sew, quilt, or crochet something. Engage your hands.",
       "Wear your nicest outfit to give yourself an extra boost of confidence.",
-      "Ask for help. Let people know you need some help."
+      "Ask for help. Let people know you need some help.",
+      "When you take a shower, visualize the water giving you energy and calm.",
+      "Meditate on this mantra: ‘I am a strong individual who attracts success, prosperity and happiness.’"
     ]
   },
   "fullMoon": {
@@ -68,7 +77,9 @@ const data = {
       "Increase your intuitive awareness by practicing mindfulness.",
       "Watch the sky at night to connect with the magic of your life.",
       "Bake and enjoy your favorite comfort food.",
-      "Gift yourself a fun snack while grocery shopping."
+      "Gift yourself a fun snack while grocery shopping.",
+      "Sing your favorite songs out loud.",
+      "Meditate on this mantra: ‘I am interconnected with the rest of the world,so the world benefits from my existance.’"
     ]
   },
   "waningGibbous": {
@@ -84,7 +95,11 @@ const data = {
       "Clean up just one small corner of a room in your house.",
       "Reach out to an old friend you haven't spoken to in a while.",
       "Send a surprise care package to someone you love.",
-      "Do something nice to someone in secret."
+      "Do something nice to someone in secret.",
+      "Make a handmade card for someone you love.",
+      "Write down a list of the 20 things and people you are thankful for.",
+      "Look at old photos with people you love.",
+      "Meditate on this mantra: 'I am at peace with all that has happened, is happening, and will happen.'"
     ]
   },
   "lastQuarter": {
@@ -100,7 +115,10 @@ const data = {
       "Visit the library or a bookstore and spend time reading a new book.",
       "Listen to a podcast about a topic that you don't know much about.",
       "Declutter your closet by throwing out (or donating) clothes.",
-      "Take a break from social media by deleting or deactivating it."
+      "Take a break from social media by deleting or deactivating it.",
+      "Make yourself breakfast early one morning and enjoy it in bed.",
+      "Sweep the floor and visualize removing all negativity out of the room.",
+      "Meditate on this mantra: 'Today, I abandon my old habits and take up new, more positive ones.'"
     ]
   },
   "waningCrescent": {
@@ -115,7 +133,12 @@ const data = {
       "Take a nap without an alarm clock.",
       "Intentionally schedule 'me time' on your calendar or planner.",
       "Light a candle in a dark room and sit in silence.",
-      "Sit somewhere in nature and be still and quiet for a few minutes."
+      "Sit somewhere in nature and be still and quiet for a few minutes.",
+      "Re-watch your favourite episode of a TV show.",
+      "Sip a cup of your favorite herbal tea.",
+      "Lay down and listen to your favorite music.",
+      "Tuck a sprig of lavender under your pillow before bed.",
+      "Meditate on this mantra: 'I choose to be kind to myself and love myself unconditionally.'"
     ]
   }
 }
