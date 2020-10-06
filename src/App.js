@@ -3,68 +3,7 @@ import Greeting from './components/Greeting';
 import MoonCard from './components/MoonCard'; 
 import Activities from './components/Activities';
 import data from './data/moon';
-
-// function to calculate the current moon phase 
-
-function getMoonPhase(year, month, day) {
-  let c = 0;
-  let e = 0;
-  let jd = 0;
-  let b = 0;
-
-  if (month < 3) {
-    year--;
-    month += 12;
-  }
-
-  ++month;
-  c = 365.25 * year;
-  e = 30.6 * month;
-  jd = c + e + day - 694039.09;
-  jd /= 29.5305882; 
-  b = parseInt(jd); 
-  jd -= b; 
-  b = Math.round(jd * 8);
-  
-  if (b >= 8 ) {
-      b = 0; 
-  }
-
-  let currentMoon; 
-
-  switch(b) {
-    case 0: 
-      currentMoon = 'newMoon';
-      break;
-    case 1:
-      currentMoon = 'waxingCrescent';
-      break;
-    case 2: 
-      currentMoon = 'firstQuarter';
-      break;
-    case 3: 
-      currentMoon = 'waxingGibbous';
-      break;
-    case 4: 
-      currentMoon = 'fullMoon';
-      break;
-    case 5:
-      currentMoon = 'waningGibbous';
-      break;
-    case 6:
-      currentMoon = 'lastQuarter';
-      break;
-    case 7:
-      currentMoon = 'waningCrescent';
-      break;
-    default:
-      currentMoon = 'Error'; 
-  }
-
-  return currentMoon; 
-}
-
-// main React component 
+import { getMoonPhase } from './helpers';
 
 class App extends React.Component {
   constructor (props) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { HiOutlineDotsHorizontal } from 'react-icons/hi'; 
+import { getFriendlyDate, getGreeting } from '../helpers';
 
 class Greeting extends React.Component {
   constructor (props) {
@@ -72,27 +73,11 @@ class Greeting extends React.Component {
 
     const month = months[now.getMonth()];
     const day = days[now.getDay()];
-    let date = now.getDate();
-    const hour = now.getHours();
-    let hello; 
+    const date = now.getDate();
+    const hour = now.getHours(); 
 
-    if (date === 1 || date === 21 || date === 31) {
-      date += 'st';
-    } else if (date === 2 || date === 22) {
-      date += 'nd';
-    } else if (date === 3 || date === 23) {
-      date += 'rd';
-    } else {
-      date += 'th'; 
-    }
-
-    if (hour > 4 && hour < 12) {
-      hello = 'Good morning';
-    } else if (hour > 12 && hour < 18) {
-      hello = 'Good afternoon';
-    } else if (hour > 18 || hour < 4) {
-      hello = 'Good evening'; 
-    }
+    const friendlyDate = getFriendlyDate(date);
+    const hello = getGreeting(hour); 
 
     return (
       <div className='greeting__wrapper'>
@@ -132,7 +117,7 @@ class Greeting extends React.Component {
               </form>
           }
         </h1>
-        <h2 className='greeting__date'>{day} {date} {month}</h2>
+        <h2 className='greeting__date'>{day} {friendlyDate} {month}</h2>
       </div> 
     )
   }
