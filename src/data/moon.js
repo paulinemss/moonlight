@@ -30,6 +30,7 @@ const data = {
       "What is the first step you can take towards your dream?",
       "Take another route to work, or do a routine differently.",
       "Manifest money, wealth and abundance by budgeting the next month.",
+      "Visit something touristic in your own city to get inspired.", 
       "Meditate on this mantra: ‘I am so much more than my mind allows me to believe.’"
     ]
   },
@@ -62,6 +63,7 @@ const data = {
       "Wear your nicest outfit to give yourself an extra boost of confidence.",
       "Ask for help. Let people know you need some help.",
       "When you take a shower, visualize the water giving you energy and calm.",
+      "Schedule 5 – 10 minutes breaks during your work day.",
       "Meditate on this mantra: ‘I am a strong individual who attracts success, prosperity and happiness.’"
     ]
   },
@@ -79,6 +81,7 @@ const data = {
       "Bake and enjoy your favorite comfort food.",
       "Gift yourself a fun snack while grocery shopping.",
       "Sing your favorite songs out loud.",
+      "Hug someone you love or a beloved pet.",
       "Meditate on this mantra: ‘I am interconnected with the rest of the world,so the world benefits from my existance.’"
     ]
   },
@@ -108,6 +111,7 @@ const data = {
     "description": "The moon has moved another quarter of the way around Earth, making it half-lit by sunshine and half-immersed in its own shadow. It will appear at its highest in the sky around dawn, and will set around midday.",
     "todos": [
       "Write down everything you love about yourself.",
+      "Give a try to colouring books for adults.", 
       "Declutter your home of anything that is weighing you down.",
       "Cook a healthy and nutritive meal.",
       "Meditate on what you have learned in your recent projects.",
@@ -138,6 +142,7 @@ const data = {
       "Sip a cup of your favorite herbal tea.",
       "Lay down and listen to your favorite music.",
       "Tuck a sprig of lavender under your pillow before bed.",
+      "Put on a homemade face mask.",
       "Meditate on this mantra: 'I choose to be kind to myself and love myself unconditionally.'"
     ]
   }
