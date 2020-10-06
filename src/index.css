@@ -98,8 +98,92 @@ ul {
   padding: 30px;
 }
 
+.greeting__title {
+  display: flex;
+}
+
 .greeting__username {
   color: #F8C55A; 
+  margin-left: 5px; 
+}
+
+.greeting__input {
+  background: none;
+  border: none;
+  outline: none; 
+  color: #F8C55A;
+  font-family: 'Noto Sans JP';
+  font-size: 30px; 
+  border-bottom: 1px solid #F8C55A;
+  width: 200px; 
+  margin-left: 5px; 
+}
+
+.toggle__button {
+  background: none; 
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 22px; 
+  cursor: pointer;
+  margin-left: 5px;
+  display: none; 
+  border-radius: 50%; 
+  height: 30px;
+  width: 30px; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.greeting__title:hover > .toggle__button {
+  display: flex; 
+}
+
+.toggle__button:hover,
+.toggle__button:focus {
+  background: rgba(255, 255, 255, 0.2); 
+}
+
+.edit__wrapper {
+  display: none; 
+}
+
+.edit__open {
+  display: flex; 
+}
+
+.edit__button {
+  background: #6369b0;
+  color: #fff;
+  font-family: 'Noto Sans JP';
+  border: none;
+  outline: none;
+  margin-left: 15px; 
+  border-radius: 5px; 
+  height: 30px; 
+  cursor: pointer;
+  padding: 0 15px; 
+}
+
+.edit__button:focus {
+  box-shadow: 0px 0px 15px 1px #6369b0;
+}
+
+.edit__wrapper:before {
+  content: " ";
+  width: 0; 
+  height: 0; 
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent; 
+  border-right: 6px solid #6369b0; 
+  margin-right: -15px;
+  margin-left: 5px; 
+  margin-top: 8px; 
+}
+
+.greeting__date {
+  font-weight: 500; 
+  margin-bottom: 0;
 }
 
 /* activities elements CSS */ 
@@ -167,6 +251,10 @@ ul {
   align-items: center;
   justify-content: center;
   font-size: 16px;
+}
+
+.addtodo__btn:focus {
+  box-shadow: 0px 0px 15px 1px #6369b0;
 }
 
 .addtodo__icon {

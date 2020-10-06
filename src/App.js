@@ -102,7 +102,6 @@ class App extends React.Component {
         <div className='column'>
           <Greeting 
             now={this.state.now}
-            username='Pauline'
           />
           <div className='card__wrapper card__activities'>
             <Activities 
