@@ -194,6 +194,12 @@ ul {
 
 .activity__all {
   margin-bottom: -10px; 
+  max-height: 20vh; 
+  overflow-y: scroll; 
+}
+
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 .activity__line {
@@ -260,5 +266,35 @@ ul {
 .addtodo__icon {
   font-size: 22px; 
   margin-right: 5px;
+  display: flex; 
+}
+
+.inputtodo__hidden {
+  display: none;
+}
+
+.inputtodo__form {
+  flex-grow: 1; 
+  margin-right: 40px; 
+}
+
+.inputtodo__field {
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-family: 'Noto Sans JP';
+  font-size: 16px; 
+  width: 100%; 
+}
+
+.arrow__icon {
+  background: none; 
+  border: none; 
+  outline: none; 
+  color: #fff;
+  font-size: 25px; 
+  padding: 0; 
   display: flex; 
 }

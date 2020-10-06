@@ -90,7 +90,7 @@ const data = {
       "Cleanse your space with sage or palo santo to release negativity.",
       "Buy yourself flowers to bring new harmony to your home.",
       "Enjoy a full day of resting reading your favorite book.",
-      "Show gratitude for everything you accomplished so far.",
+      "Show gratitude for everything you've accomplished so far.",
       "Practice saying no to bad relationships or a toxic work environment.",
       "Clean up just one small corner of a room in your house.",
       "Reach out to an old friend you haven't spoken to in a while.",

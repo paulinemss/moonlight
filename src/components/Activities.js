@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiSquare, FiCheckSquare, FiPlusSquare } from 'react-icons/fi';
+import { FiSquare, FiCheckSquare, FiPlusSquare, FiArrowRight } from 'react-icons/fi';
 
 let usedTodos = [];
 
@@ -9,11 +9,18 @@ class Activities extends React.Component {
 
     this.state = {
       threeTodos: [],
-      completedTodos: []
+      completedTodos: [],
+      inputHidden: 'inputtodo__hidden',
+      inputValue: '',
+      userInput: [],
+      mergedTodos: []
     }
 
     this.getThreeTodos = this.getThreeTodos.bind(this)
     this.toggleCheckbox = this.toggleCheckbox.bind(this)
+    this.toggleTodosInput = this.toggleTodosInput.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   getThreeTodos (allTodos, moonPhase) {
@@ -51,6 +58,29 @@ class Activities extends React.Component {
     localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
   }
 
+  toggleTodosInput () {
+    if (this.state.inputHidden === 'inputtodo__hidden') {
+      this.setState({ inputHidden: '' });
+    } else {
+      this.setState({ inputHidden: 'inputtodo__hidden' });
+    }
+  }
+
+  handleChange (event) {
+    this.setState({ inputValue: event.target.value });
+  }
+
+  handleSubmit (event) {
+    const { now } = this.props;
+    const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
+
+    const newUserInput = this.state.userInput.slice(); 
+    newUserInput.push(this.state.inputValue);
+
+    this.setState({ userInput: newUserInput });
+    localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+  }
+
   componentDidMount () {
     const { todos, moonPhase, now } = this.props;
     const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -62,13 +92,27 @@ class Activities extends React.Component {
     }
 
     // checking if three todos have already been rendered and saved to local storage today 
-    const savedDailyTodos = JSON.parse(localStorage.getItem(today));
-    if (savedDailyTodos) {
-      this.setState({ threeTodos: savedDailyTodos })
+    const savedDailyTodos = JSON.parse(
+      localStorage.getItem(`threeToDos-${today}`)
+    );
+    const savedUserInput = JSON.parse(
+      localStorage.getItem(`userInput-${today}`)
+    );
+
+    if (savedDailyTodos && savedUserInput) {
+      const mergedTodos = savedDailyTodos.concat(savedUserInput);
+      this.setState({ threeTodos: savedDailyTodos });
+      this.setState({ userInput: savedUserInput });
+      this.setState({ mergedTodos: mergedTodos });
     } else {
       const threeTodos = this.getThreeTodos(todos, moonPhase); 
       this.setState({ threeTodos: threeTodos })
-      localStorage.setItem(today, JSON.stringify(threeTodos));
+      localStorage.setItem(`threeToDos-${today}`, JSON.stringify(threeTodos));
+      if (savedUserInput) {
+        const mergedTodos = threeTodos.concat(savedUserInput);
+        this.setState({ userInput: savedUserInput });
+        this.setState({ mergedTodos: mergedTodos });
+      }
     }
 
     // checking if there are already completed daily todos
@@ -80,11 +124,23 @@ class Activities extends React.Component {
   }
 
   render () {
+
+    let selfCarePrompts = []; 
+
+    if (this.state.mergedTodos.length > 0) {
+      selfCarePrompts = this.state.mergedTodos.slice(); 
+    } else {
+      selfCarePrompts = this.state.threeTodos.slice(); 
+    }
+
     return (
       <div>
+
         <h2>Self-care prompts</h2>
+
         <ul className='activity__all'>
-          {this.state.threeTodos.map((todo, index) => (
+
+          {selfCarePrompts.map((todo, index) => (
             this.state.completedTodos.includes(todo)
               ? <li key={index}>
                   <p className='activity__line'>
@@ -113,15 +169,39 @@ class Activities extends React.Component {
                   </p>
                 </li>
           ))}
+          
+          <li className={this.state.inputHidden}>
+            <p className='activity__line'>
+              <div className='checkbox__wrapper'>
+                <button 
+                  className='arrow__icon'
+                >
+                    <FiArrowRight />
+                </button>
+              </div>
+              <form className='inputtodo__form' onSubmit={this.handleSubmit}>
+                <input 
+                  type='text' 
+                  className='inputtodo__field' 
+                  value={this.state.inputValue} 
+                  onChange={this.handleChange}
+                />
+              </form>
+            </p>
+          </li>
+
         </ul>
+
         <div className='addtodo__wrapper'>
           <button 
             className='addtodo__btn'
+            onClick={this.toggleTodosInput}
           >
               <span className='addtodo__icon'><FiPlusSquare /></span>
               <span>New Todo</span>
           </button>
         </div>
+
       </div>
     )
   }
