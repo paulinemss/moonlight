@@ -92,6 +92,12 @@ ul {
   top: 40px; 
 }
 
+/* next moon elements CSS */
+
+.card__nextmoon {
+  margin-top: 30px; 
+}
+
 /* greetings elements CSS */ 
 
 .greeting__wrapper {
@@ -194,8 +200,8 @@ ul {
 
 .activity__all {
   margin-bottom: -10px; 
-  max-height: 30vh; 
-  overflow-y: scroll; 
+  max-height: 30vh;
+  overflow: auto;
 }
 
 .activity__main {
@@ -211,7 +217,7 @@ ul {
 
 .checkbox__wrapper {
   display: flex;
-  margin-top: 3px;
+  margin-top: 4px;
   margin-right: 10px;
 }
 

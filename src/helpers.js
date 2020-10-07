@@ -69,11 +69,11 @@ export function getFriendlyDate (date) {
 }
 
 export function getGreeting (hour) {
-  if (hour > 4 && hour < 12) {
+  if (hour >= 4 && hour < 12) {
     return 'Good morning';
-  } else if (hour > 12 && hour < 18) {
+  } else if (hour >= 12 && hour < 18) {
     return 'Good afternoon';
-  } else if (hour > 18 || hour < 4) {
+  } else if (hour >= 18 || hour < 4) {
     return 'Good evening'; 
   }
 }

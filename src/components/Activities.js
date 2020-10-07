@@ -1,4 +1,5 @@
 import React from 'react';
+import PromptList from './PromptList';
 import { 
   FiSquare, 
   FiCheckSquare, 
@@ -148,83 +149,29 @@ class Activities extends React.Component {
     const { now } = this.props;
     return (
       <div>
-
         <h2>Self-care prompts</h2>
 
         <ul className='activity__all'>
 
-          {this.state.threeTodos.map((todo, index) => (
-            this.state.completedTodos.includes(todo)
-              ? <li key={index}>
-                  <p className='activity__line'>
-                    <div className='checkbox__wrapper'>
-                      <button 
-                        className='checkbox__btn checked'
-                        onClick={() => this.toggleCheckbox(todo, now)}
-                      >
-                          <FiCheckSquare />
-                      </button>
-                    </div>
-                    <span>{todo}</span>
-                  </p>
-                </li>
-              : <li key={index}>
-                  <p className='activity__line'>
-                    <div className='checkbox__wrapper'>
-                      <button 
-                        className='checkbox__btn'
-                        onClick={() => this.toggleCheckbox(todo, now)}
-                      >
-                          <FiSquare />
-                      </button>
-                    </div>
-                    <span>{todo}</span>
-                  </p>
-                </li>
-          ))}
+          <PromptList 
+            arrayTodos={this.state.threeTodos}
+            completedTodos={this.state.completedTodos}
+            toggleCheckbox={this.toggleCheckbox}
+            showRemoveButton={false}
+            removeUserInput={this.removeUserInput}
+            now={now}
+          />
 
-          {this.state.userInput.length > 0 &&
-            this.state.userInput.map((todo, index) => (
-              this.state.completedTodos.includes(todo)
-                ? <li className='activity__main' key={index}>
-                    <p className='activity__line'>
-                      <div className='checkbox__wrapper'>
-                        <button 
-                          className='checkbox__btn checked'
-                          onClick={() => this.toggleCheckbox(todo, now)}
-                        >
-                            <FiCheckSquare />
-                        </button>
-                      </div>
-                      <span>{todo}</span>
-                    </p>
-                    <button
-                      className='userinput__btn'
-                      onClick={() => this.removeUserInput(todo, now)}
-                    >
-                      <FiX />
-                    </button>
-                  </li>
-                : <li className='activity__main' key={index}>
-                    <p className='activity__line'>
-                      <div className='checkbox__wrapper'>
-                        <button 
-                          className='checkbox__btn'
-                          onClick={() => this.toggleCheckbox(todo, now)}
-                        >
-                            <FiSquare />
-                        </button>
-                      </div>
-                      <span>{todo}</span>
-                    </p>
-                    <button
-                      className='userinput__btn'
-                      onClick={() => this.removeUserInput(todo, now)}
-                    >
-                      <FiX />
-                    </button>
-                  </li>
-          ))}
+          {this.state.userInput.length > 0 && 
+            <PromptList 
+              arrayTodos={this.state.userInput}
+              completedTodos={this.state.completedTodos}
+              toggleCheckbox={this.toggleCheckbox}
+              showRemoveButton={true}
+              removeUserInput={this.removeUserInput}
+              now={now}
+            />
+          }
           
           <li className={this.state.inputHidden}>
             <p className='activity__line'>

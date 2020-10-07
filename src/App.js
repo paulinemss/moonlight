@@ -37,6 +37,10 @@ class App extends React.Component {
             <h3>Focus: {data[this.state.moonPhase]["focus"]}</h3>
             <p>{data[this.state.moonPhase]["description"]}</p>
           </MoonCard>
+          <div className='card__wrapper card__nextmoon'>
+            <h2>Next Full Moon</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa.</p>
+          </div>
         </div>
         <div className='column'>
           <Greeting 
@@ -48,10 +52,6 @@ class App extends React.Component {
               moonPhase={this.state.moonPhase}
               todos={data[this.state.moonPhase]["todos"]}
             />
-          </div>
-          <div className='card__wrapper'>
-            <h2>Next Full Moon</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa.</p>
           </div>
         </div>
       </div>
