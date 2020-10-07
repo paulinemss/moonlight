@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PromptList from './PromptList';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import 'react-perfect-scrollbar/dist/css/styles.css';
@@ -20,12 +21,14 @@ class Activities extends React.Component {
     }
 
     this.userInputField = React.createRef();
+    this.promptListDiv = React.createRef(); 
     this.getThreeTodos = this.getThreeTodos.bind(this)
     this.toggleCheckbox = this.toggleCheckbox.bind(this)
     this.toggleTodosInput = this.toggleTodosInput.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.removeUserInput = this.removeUserInput.bind(this)
+    this.scrollToBottom = this.scrollToBottom.bind(this)
   }
 
   getThreeTodos (allTodos, moonPhase) {
@@ -79,6 +82,7 @@ class Activities extends React.Component {
           inputValue: ''
         });
         localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+        this.scrollToBottom(); 
       } else {
         this.setState({ inputHidden: 'inputtodo__hidden' });
       }
@@ -103,6 +107,7 @@ class Activities extends React.Component {
         inputValue: ''
       });
       localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+      this.scrollToBottom(); 
     }
   }
 
@@ -114,6 +119,11 @@ class Activities extends React.Component {
 
     this.setState({ userInput: newUserInput });
     localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+  }
+
+  scrollToBottom () {
+    const promptListDiv = ReactDOM.findDOMNode(this.promptListDiv);
+    promptListDiv.scrollTop = promptListDiv.scrollHeight - promptListDiv.clientHeight; 
   }
 
   componentDidMount () {
@@ -158,6 +168,11 @@ class Activities extends React.Component {
       this.setState({ completedTodos: savedCompletedTodos })
     }
 
+    this.scrollToBottom();
+  }
+
+  componentDidUpdate () {
+    this.scrollToBottom();
   }
 
   render () {
@@ -167,8 +182,9 @@ class Activities extends React.Component {
         <h2>Self-care prompts</h2>
         
         <ul>
+
           <div className='activity__all'>
-            <PerfectScrollbar>
+            <PerfectScrollbar ref={(el) => { this.promptListDiv = el; }}>
               <PromptList 
                 arrayTodos={this.state.threeTodos}
                 completedTodos={this.state.completedTodos}

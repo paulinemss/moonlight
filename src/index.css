@@ -206,9 +206,8 @@ ul {
   display: flex;
 }
 
-.activity__all {
-  max-height: 30vh; 
-  height: 20vh; 
+.activity__all { 
+  height: 20vh;
 }
 
 .activity__line {
