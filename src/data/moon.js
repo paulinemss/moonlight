@@ -100,7 +100,7 @@ const data = {
       "Send a surprise care package to someone you love.",
       "Do something nice to someone in secret.",
       "Make a handmade card for someone you love.",
-      "Write down a list of the 20 things and people you are thankful for.",
+      "Write down a list of the 10 things and people you are thankful for.",
       "Look at old photos with people you love.",
       "Meditate on this mantra: 'I am at peace with all that has happened, is happening, and will happen.'"
     ]

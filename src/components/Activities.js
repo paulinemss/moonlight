@@ -1,5 +1,11 @@
 import React from 'react';
-import { FiSquare, FiCheckSquare, FiPlusSquare, FiArrowRight } from 'react-icons/fi';
+import { 
+  FiSquare, 
+  FiCheckSquare, 
+  FiPlusSquare, 
+  FiArrowRight,
+  FiX } 
+from 'react-icons/fi';
 
 let usedTodos = [];
 
@@ -16,11 +22,13 @@ class Activities extends React.Component {
       mergedTodos: []
     }
 
+    this.userInputField = React.createRef();
     this.getThreeTodos = this.getThreeTodos.bind(this)
     this.toggleCheckbox = this.toggleCheckbox.bind(this)
     this.toggleTodosInput = this.toggleTodosInput.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.removeUserInput = this.removeUserInput.bind(this)
   }
 
   getThreeTodos (allTodos, moonPhase) {
@@ -44,7 +52,8 @@ class Activities extends React.Component {
     return threeTodos; 
   }
 
-  toggleCheckbox (todo) {
+  toggleCheckbox (todo, now) {
+    const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
     const completedTodos = this.state.completedTodos.slice(); 
 
     if (completedTodos.includes(todo)) {
@@ -55,7 +64,7 @@ class Activities extends React.Component {
     }
 
     this.setState({ completedTodos: completedTodos });
-    localStorage.setItem('completedTodos', JSON.stringify(completedTodos));
+    localStorage.setItem(`completedTodos-${today}`, JSON.stringify(completedTodos));
   }
 
   toggleTodosInput () {
@@ -81,6 +90,16 @@ class Activities extends React.Component {
     localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
   }
 
+  removeUserInput (todo, now) {
+    const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
+    const newUserInput = this.state.userInput.slice(); 
+    const indexOfRemovedTodo = newUserInput.indexOf(todo); 
+    newUserInput.splice(indexOfRemovedTodo, 1); 
+
+    this.setState({ userInput: newUserInput });
+    localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+  }
+
   componentDidMount () {
     const { todos, moonPhase, now } = this.props;
     const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
@@ -93,7 +112,7 @@ class Activities extends React.Component {
 
     // checking if three todos have already been rendered and saved to local storage today 
     const savedDailyTodos = JSON.parse(
-      localStorage.getItem(`threeToDos-${today}`)
+      localStorage.getItem(`threeTodos-${today}`)
     );
     const savedUserInput = JSON.parse(
       localStorage.getItem(`userInput-${today}`)
@@ -107,7 +126,7 @@ class Activities extends React.Component {
     } else {
       const threeTodos = this.getThreeTodos(todos, moonPhase); 
       this.setState({ threeTodos: threeTodos })
-      localStorage.setItem(`threeToDos-${today}`, JSON.stringify(threeTodos));
+      localStorage.setItem(`threeTodos-${today}`, JSON.stringify(threeTodos));
       if (savedUserInput) {
         const mergedTodos = threeTodos.concat(savedUserInput);
         this.setState({ userInput: savedUserInput });
@@ -116,7 +135,9 @@ class Activities extends React.Component {
     }
 
     // checking if there are already completed daily todos
-    const savedCompletedTodos = JSON.parse(localStorage.getItem('completedTodos'));
+    const savedCompletedTodos = JSON.parse(
+      localStorage.getItem(`completedTodos-${today}`)
+    );
     if (savedCompletedTodos) {
       this.setState({ completedTodos: savedCompletedTodos })
     }
@@ -124,15 +145,7 @@ class Activities extends React.Component {
   }
 
   render () {
-
-    let selfCarePrompts = []; 
-
-    if (this.state.mergedTodos.length > 0) {
-      selfCarePrompts = this.state.mergedTodos.slice(); 
-    } else {
-      selfCarePrompts = this.state.threeTodos.slice(); 
-    }
-
+    const { now } = this.props;
     return (
       <div>
 
@@ -140,14 +153,14 @@ class Activities extends React.Component {
 
         <ul className='activity__all'>
 
-          {selfCarePrompts.map((todo, index) => (
+          {this.state.threeTodos.map((todo, index) => (
             this.state.completedTodos.includes(todo)
               ? <li key={index}>
                   <p className='activity__line'>
                     <div className='checkbox__wrapper'>
                       <button 
                         className='checkbox__btn checked'
-                        onClick={() => this.toggleCheckbox(todo)}
+                        onClick={() => this.toggleCheckbox(todo, now)}
                       >
                           <FiCheckSquare />
                       </button>
@@ -160,7 +173,7 @@ class Activities extends React.Component {
                     <div className='checkbox__wrapper'>
                       <button 
                         className='checkbox__btn'
-                        onClick={() => this.toggleCheckbox(todo)}
+                        onClick={() => this.toggleCheckbox(todo, now)}
                       >
                           <FiSquare />
                       </button>
@@ -168,6 +181,49 @@ class Activities extends React.Component {
                     <span>{todo}</span>
                   </p>
                 </li>
+          ))}
+
+          {this.state.userInput.length > 0 &&
+            this.state.userInput.map((todo, index) => (
+              this.state.completedTodos.includes(todo)
+                ? <li className='activity__main' key={index}>
+                    <p className='activity__line'>
+                      <div className='checkbox__wrapper'>
+                        <button 
+                          className='checkbox__btn checked'
+                          onClick={() => this.toggleCheckbox(todo, now)}
+                        >
+                            <FiCheckSquare />
+                        </button>
+                      </div>
+                      <span>{todo}</span>
+                    </p>
+                    <button
+                      className='userinput__btn'
+                      onClick={() => this.removeUserInput(todo, now)}
+                    >
+                      <FiX />
+                    </button>
+                  </li>
+                : <li className='activity__main' key={index}>
+                    <p className='activity__line'>
+                      <div className='checkbox__wrapper'>
+                        <button 
+                          className='checkbox__btn'
+                          onClick={() => this.toggleCheckbox(todo, now)}
+                        >
+                            <FiSquare />
+                        </button>
+                      </div>
+                      <span>{todo}</span>
+                    </p>
+                    <button
+                      className='userinput__btn'
+                      onClick={() => this.removeUserInput(todo, now)}
+                    >
+                      <FiX />
+                    </button>
+                  </li>
           ))}
           
           <li className={this.state.inputHidden}>
@@ -183,6 +239,7 @@ class Activities extends React.Component {
                 <input 
                   type='text' 
                   className='inputtodo__field' 
+                  ref={userInputField => userInputField && userInputField.focus()}
                   value={this.state.inputValue} 
                   onChange={this.handleChange}
                 />

@@ -13,6 +13,7 @@ class Greeting extends React.Component {
     }
 
     this.wrapperRef = React.createRef();
+    this.usernameInput = React.createRef();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.toggleEditWrapper = this.toggleEditWrapper.bind(this);
@@ -109,6 +110,7 @@ class Greeting extends React.Component {
                 <input 
                   type='text' 
                   name='username'
+                  ref={usernameInput => usernameInput && usernameInput.focus()}
                   className='greeting__input' 
                   value={this.state.value} 
                   onChange={this.handleChange}
