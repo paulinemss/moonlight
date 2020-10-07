@@ -66,8 +66,8 @@ ul {
 .mooncard__wrapper {
   background: url('assets/background-large.png') #35396A no-repeat;
   background-position: top; 
-  background-size: 100%; 
-  padding: 25vw 30px 30px 30px; 
+  background-size: 100% 250px;
+  padding: 18vw 30px 30px 30px; 
   border-radius: 20px; 
   margin-left: 30px; 
   margin-right: 30px;
@@ -83,8 +83,8 @@ ul {
 }
 
 .moon__image {
-  width: 45vw;
-  height: 45vw; 
+  width: 32vw;
+  height: 32vw; 
   background: url('assets/full-moon.png') no-repeat;
   background-position: top; 
   background-size: 100%; 
@@ -198,14 +198,17 @@ ul {
   margin-bottom: 50px !important; 
 }
 
-.activity__all {
-  margin-bottom: -10px; 
-  max-height: 30vh;
-  overflow: auto;
+.ps .ps__rail-x:hover, .ps .ps__rail-y:hover, .ps .ps__rail-x:focus, .ps .ps__rail-y:focus, .ps .ps__rail-x.ps--clicking, .ps .ps__rail-y.ps--clicking {
+  background: none !important; 
 }
 
 .activity__main {
   display: flex;
+}
+
+.activity__all {
+  max-height: 30vh; 
+  height: 20vh; 
 }
 
 .activity__line {

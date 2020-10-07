@@ -1,12 +1,8 @@
 import React from 'react';
 import PromptList from './PromptList';
-import { 
-  FiSquare, 
-  FiCheckSquare, 
-  FiPlusSquare, 
-  FiArrowRight,
-  FiX } 
-from 'react-icons/fi';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import { FiPlusSquare, FiArrowRight } from 'react-icons/fi';
 
 let usedTodos = [];
 
@@ -69,10 +65,23 @@ class Activities extends React.Component {
   }
 
   toggleTodosInput () {
+    const { now } = this.props;
+    const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
+
     if (this.state.inputHidden === 'inputtodo__hidden') {
       this.setState({ inputHidden: '' });
     } else {
-      this.setState({ inputHidden: 'inputtodo__hidden' });
+      if (this.state.inputValue.trim() !== '') {
+        const newUserInput = this.state.userInput.slice(); 
+        newUserInput.push(this.state.inputValue);
+        this.setState({ 
+          userInput: newUserInput,
+          inputValue: ''
+        });
+        localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+      } else {
+        this.setState({ inputHidden: 'inputtodo__hidden' });
+      }
     }
   }
 
@@ -81,14 +90,20 @@ class Activities extends React.Component {
   }
 
   handleSubmit (event) {
+    event.preventDefault();
     const { now } = this.props;
     const today = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`;
 
-    const newUserInput = this.state.userInput.slice(); 
-    newUserInput.push(this.state.inputValue);
+    if (this.state.inputValue.trim() !== '') {
+      const newUserInput = this.state.userInput.slice(); 
+      newUserInput.push(this.state.inputValue);
 
-    this.setState({ userInput: newUserInput });
-    localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+      this.setState({ 
+        userInput: newUserInput,
+        inputValue: ''
+      });
+      localStorage.setItem(`userInput-${today}`, JSON.stringify(newUserInput));
+    }
   }
 
   removeUserInput (todo, now) {
@@ -150,28 +165,31 @@ class Activities extends React.Component {
     return (
       <div>
         <h2>Self-care prompts</h2>
+        
+        <ul>
+          <div className='activity__all'>
+            <PerfectScrollbar>
+              <PromptList 
+                arrayTodos={this.state.threeTodos}
+                completedTodos={this.state.completedTodos}
+                toggleCheckbox={this.toggleCheckbox}
+                showRemoveButton={false}
+                removeUserInput={this.removeUserInput}
+                now={now}
+              />
 
-        <ul className='activity__all'>
-
-          <PromptList 
-            arrayTodos={this.state.threeTodos}
-            completedTodos={this.state.completedTodos}
-            toggleCheckbox={this.toggleCheckbox}
-            showRemoveButton={false}
-            removeUserInput={this.removeUserInput}
-            now={now}
-          />
-
-          {this.state.userInput.length > 0 && 
-            <PromptList 
-              arrayTodos={this.state.userInput}
-              completedTodos={this.state.completedTodos}
-              toggleCheckbox={this.toggleCheckbox}
-              showRemoveButton={true}
-              removeUserInput={this.removeUserInput}
-              now={now}
-            />
-          }
+              {this.state.userInput.length > 0 && 
+                <PromptList 
+                  arrayTodos={this.state.userInput}
+                  completedTodos={this.state.completedTodos}
+                  toggleCheckbox={this.toggleCheckbox}
+                  showRemoveButton={true}
+                  removeUserInput={this.removeUserInput}
+                  now={now}
+                />
+              }
+            </PerfectScrollbar>
+          </div>
           
           <li className={this.state.inputHidden}>
             <p className='activity__line'>
@@ -195,6 +213,7 @@ class Activities extends React.Component {
           </li>
 
         </ul>
+      
 
         <div className='addtodo__wrapper'>
           <button 

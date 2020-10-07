@@ -26,7 +26,8 @@ class Greeting extends React.Component {
   }
 
   handleSubmit (event) {
-    if (this.state.value !== '') {
+    event.preventDefault();
+    if (this.state.value.trim() !== '') {
       this.setState({ username: this.state.value })
       localStorage.setItem('username', this.state.value)
       event.preventDefault();

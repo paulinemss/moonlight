@@ -39,7 +39,7 @@ class App extends React.Component {
           </MoonCard>
           <div className='card__wrapper card__nextmoon'>
             <h2>Next Full Moon</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo, scelerisque non felis porta, placerat vestibulum nisi. Vestibulum ac elementum massa.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo.</p>
           </div>
         </div>
         <div className='column'>
