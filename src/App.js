@@ -3,6 +3,7 @@ import Greeting from './components/Greeting';
 import MoonCard from './components/MoonCard'; 
 import Activities from './components/Activities';
 import NextMoon from './components/NextMoon'; 
+import TimeWeather from './components/TimeWeather'; 
 import data from './data/moon';
 import { getMoonPhase } from './helpers';
 
@@ -46,6 +47,9 @@ class App extends React.Component {
         </div>
         <div className='column column__activities'>
           <Greeting 
+            now={this.state.now}
+          />
+          <TimeWeather 
             now={this.state.now}
           />
           <div className='card__wrapper card__activities'>

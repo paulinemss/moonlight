@@ -203,7 +203,7 @@ class Activities extends React.Component {
           </div>
           
           <li className={this.state.inputHidden}>
-            <p className='activity__line'>
+            <div className='activity__line'>
               <div className='checkbox__wrapper'>
                 <button 
                   className='arrow__icon'
@@ -220,7 +220,7 @@ class Activities extends React.Component {
                   onChange={this.handleChange}
                 />
               </form>
-            </p>
+            </div>
           </li>
 
         </ul>

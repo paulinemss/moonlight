@@ -15,7 +15,7 @@ function PromptList (props) {
     arrayTodos.map((todo, index) => (
       completedTodos.includes(todo)
         ? <li className='activity__main' key={index}>
-            <p className='activity__line'>
+            <div className='activity__line'>
               <div className='checkbox__wrapper'>
                 <button 
                   className='checkbox__btn checked'
@@ -25,7 +25,7 @@ function PromptList (props) {
                 </button>
               </div>
               <span>{todo}</span>
-            </p>
+            </div>
             {showRemoveButton && 
               <button
                 className='userinput__btn'
@@ -36,7 +36,7 @@ function PromptList (props) {
             }
           </li>
         : <li className='activity__main' key={index}>
-            <p className='activity__line'>
+            <div className='activity__line'>
               <div className='checkbox__wrapper'>
                 <button 
                   className='checkbox__btn'
@@ -46,7 +46,7 @@ function PromptList (props) {
                 </button>
               </div>
               <span>{todo}</span>
-            </p>
+            </div>
             {showRemoveButton && 
               <button
                 className='userinput__btn'
