@@ -2,6 +2,7 @@ import React from 'react';
 import Greeting from './components/Greeting';
 import MoonCard from './components/MoonCard'; 
 import Activities from './components/Activities';
+import NextMoon from './components/NextMoon'; 
 import data from './data/moon';
 import { getMoonPhase } from './helpers';
 
@@ -38,11 +39,12 @@ class App extends React.Component {
             <p>{data[this.state.moonPhase]["description"]}</p>
           </MoonCard>
           <div className='card__wrapper card__nextmoon'>
-            <h2>Next Full Moon</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin diam justo.</p>
+            <NextMoon
+              now={this.state.now}
+            /> 
           </div>
         </div>
-        <div className='column'>
+        <div className='column column__activities'>
           <Greeting 
             now={this.state.now}
           />

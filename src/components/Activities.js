@@ -16,8 +16,7 @@ class Activities extends React.Component {
       completedTodos: [],
       inputHidden: 'inputtodo__hidden',
       inputValue: '',
-      userInput: [],
-      mergedTodos: []
+      userInput: []
     }
 
     this.userInputField = React.createRef();
@@ -136,7 +135,7 @@ class Activities extends React.Component {
       usedTodos = savedUsedTodos; 
     }
 
-    // checking if three todos have already been rendered and saved to local storage today 
+    // checking if three todos and/or user input have already been rendered and saved to local storage today 
     const savedDailyTodos = JSON.parse(
       localStorage.getItem(`threeTodos-${today}`)
     );
@@ -144,20 +143,16 @@ class Activities extends React.Component {
       localStorage.getItem(`userInput-${today}`)
     );
 
-    if (savedDailyTodos && savedUserInput) {
-      const mergedTodos = savedDailyTodos.concat(savedUserInput);
+    if (savedDailyTodos) {
       this.setState({ threeTodos: savedDailyTodos });
-      this.setState({ userInput: savedUserInput });
-      this.setState({ mergedTodos: mergedTodos });
     } else {
       const threeTodos = this.getThreeTodos(todos, moonPhase); 
       this.setState({ threeTodos: threeTodos })
       localStorage.setItem(`threeTodos-${today}`, JSON.stringify(threeTodos));
-      if (savedUserInput) {
-        const mergedTodos = threeTodos.concat(savedUserInput);
-        this.setState({ userInput: savedUserInput });
-        this.setState({ mergedTodos: mergedTodos });
-      }
+    }
+
+    if (savedUserInput) {
+      this.setState({ userInput: savedUserInput });
     }
 
     // checking if there are already completed daily todos

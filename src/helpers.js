@@ -56,6 +56,27 @@ export function getMoonPhase(year, month, day) {
   return currentMoon; 
 }
 
+export function getNextMoon (now) {
+  const start = new Date(now);
+  const end = new Date('01/01/2050');
+
+  for (let d = start; d <= end; d.setDate(d.getDate() + 1)) {
+    const newD = new Date(d); 
+    const newYear = newD.getFullYear();
+    const newMonth = newD.getMonth();
+    const newDay = newD.getDate(); 
+    const moonPhase = getMoonPhase(newYear, newMonth, newDay);
+    const nextMoon = {};
+
+    if (moonPhase === 'newMoon' || moonPhase === 'fullMoon') {
+      nextMoon.phase = moonPhase; 
+      nextMoon.date = newD; 
+      return nextMoon; 
+    }
+  }
+}
+
+
 export function getFriendlyDate (date) {
   if (date === 1 || date === 21 || date === 31) {
     return date += 'st';
