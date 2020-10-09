@@ -46,18 +46,29 @@ class App extends React.Component {
           </div>
         </div>
         <div className='column column__activities'>
-          <Greeting 
-            now={this.state.now}
-          />
-          <TimeWeather 
-            now={this.state.now}
-          />
-          <div className='card__wrapper card__activities'>
-            <Activities 
+          <div>
+            <Greeting 
               now={this.state.now}
-              moonPhase={this.state.moonPhase}
-              todos={data[this.state.moonPhase]["todos"]}
             />
+            <TimeWeather 
+              now={this.state.now}
+            />
+            <div className='card__wrapper card__activities'>
+              <Activities 
+                now={this.state.now}
+                moonPhase={this.state.moonPhase}
+                todos={data[this.state.moonPhase]["todos"]}
+              />
+            </div>
+          </div>
+          <div className='footer'>
+            <a 
+              href='https://github.com/paulinemss' 
+              rel='noopener noreferrer' 
+              target='_blank'
+            >
+              @ 2020 Pauline Massé.
+            </a> All Rights Reserved.
           </div>
         </div>
       </div>

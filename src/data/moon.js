@@ -16,7 +16,7 @@ const data = {
       "Go to a museum in your city or look up artwork online.",
       "Change your bed sheets and pillowcases.",
       "Go somewhere you’ve never visited before.",
-      "Meditate on this mantra: 'I am strong, I am powerful, I am calm, I can do anything.’"
+      "Mantra: 'I am strong, I am powerful, I am calm, I can do anything.’"
     ]
   },
   "waxingCrescent": {
@@ -31,7 +31,7 @@ const data = {
       "Take another route to work, or do a routine differently.",
       "Manifest money, wealth and abundance by budgeting the next month.",
       "Visit something touristic in your own city to get inspired.", 
-      "Meditate on this mantra: ‘I am so much more than my mind allows me to believe.’"
+      "Mantra: ‘I am so much more than my mind allows me to believe.’"
     ]
   },
   "firstQuarter": {
@@ -47,7 +47,7 @@ const data = {
       "Reward yourself for completing small tasks.",
       "Go for a hike or long walk in your area.",
       "Open the window and take a big breath of fresh air.",
-      "Meditate on this mantra: ‘I am in the process of a positive change in my life.’"
+      "Mantra: ‘I am in the process of a positive change in my life.’"
     ]
   },
   "waxingGibbous": {
@@ -64,7 +64,7 @@ const data = {
       "Ask for help. Let people know you need some help.",
       "When you take a shower, visualize the water giving you energy and calm.",
       "Schedule 5 – 10 minutes breaks during your work day.",
-      "Meditate on this mantra: ‘I am a strong individual who attracts success, prosperity and happiness.’"
+      "Mantra: ‘I am a strong individual who attracts success and happiness.’"
     ]
   },
   "fullMoon": {
@@ -82,7 +82,7 @@ const data = {
       "Gift yourself a fun snack while grocery shopping.",
       "Sing your favorite songs out loud.",
       "Hug someone you love or a beloved pet.",
-      "Meditate on this mantra: ‘I am interconnected with the rest of the world,so the world benefits from my existance.’"
+      "Mantra: ‘I am interconnected with the rest of the world.’"
     ]
   },
   "waningGibbous": {
@@ -102,7 +102,7 @@ const data = {
       "Make a handmade card for someone you love.",
       "Write down a list of the 10 things and people you are thankful for.",
       "Look at old photos with people you love.",
-      "Meditate on this mantra: 'I am at peace with all that has happened, is happening, and will happen.'"
+      "Mantra: 'I am at peace with all that has happened.'"
     ]
   },
   "lastQuarter": {
@@ -122,7 +122,7 @@ const data = {
       "Take a break from social media by deleting or deactivating it.",
       "Make yourself breakfast early one morning and enjoy it in bed.",
       "Sweep the floor and visualize removing all negativity out of the room.",
-      "Meditate on this mantra: 'Today, I abandon my old habits and take up new, more positive ones.'"
+      "Mantra: 'Today, I abandon my old habits and start new, positive ones.'"
     ]
   },
   "waningCrescent": {
@@ -143,7 +143,7 @@ const data = {
       "Lay down and listen to your favorite music.",
       "Tuck a sprig of lavender under your pillow before bed.",
       "Put on a homemade face mask.",
-      "Meditate on this mantra: 'I choose to be kind to myself and love myself unconditionally.'"
+      "Mantra: 'I choose to be kind to myself and love myself unconditionally.'"
     ]
   }
 }

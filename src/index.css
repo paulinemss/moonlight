@@ -254,6 +254,9 @@ ul {
 .column__activities {
   margin-right: 60px; 
   width: 42%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__activities {
@@ -269,7 +272,7 @@ ul {
 }
 
 .activity__all { 
-  height: 20vh;
+  height: 16vh;
 }
 
 .activity__line {
@@ -395,4 +398,17 @@ ul {
   font-size: 25px; 
   padding: 0; 
   display: flex; 
+}
+
+/* footer elements CSS */ 
+
+.footer {
+  margin-left: 30px; 
+  margin-bottom: 30px;
+  align-self: center; 
+  font-size: 14px; 
+}
+
+.footer a {
+  color: #fff; 
 }
