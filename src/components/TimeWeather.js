@@ -10,7 +10,7 @@ class TimeWeather extends React.Component {
       currentTime: new Date(),
       error: null,
       isLoaded: false,
-      items: []
+      items: {}
     }
 
     this.tick = this.tick.bind(this)
@@ -51,7 +51,7 @@ class TimeWeather extends React.Component {
               console.log('result', result);
               context.setState({
                 isLoaded: true,
-                items: result.items
+                items: result
               });
             },
             (error) => {
@@ -80,6 +80,8 @@ class TimeWeather extends React.Component {
     let minute = this.state.currentTime.getMinutes()
     let second = this.state.currentTime.getSeconds()
 
+    const currentWeather = items.weather ? items.weather[0] : null;
+
     hour = this.getFriendlyTime(hour); 
     minute = this.getFriendlyTime(minute);
     second = this.getFriendlyTime(second); 
@@ -92,7 +94,21 @@ class TimeWeather extends React.Component {
         <div className='timeweather__weather'>
           {error && <div>Error: {error.message}</div>}
           {!isLoaded && <div>Loading...</div>}
-          {items && <div>it's working</div>}
+          {items && currentWeather && <div className='timeweather__wrapper'>
+            <div className='timeweather__temp'>
+              <img 
+                className='timeweather__icon'
+                src={`http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
+                alt='weather icon'
+              />
+              <span className='timeweather__degrees'>
+                {Math.floor(items.main.temp - 273.15)}°
+              </span>
+            </div>
+            <span className='timeweather__location'>
+              {items.name}
+            </span>
+          </div>}
         </div>
       </div>
     )
