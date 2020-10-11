@@ -19,7 +19,7 @@ class App extends React.Component {
 
   componentDidMount () {
     const year = this.state.now.getFullYear();
-    const month = this.state.now.getMonth();
+    const month = this.state.now.getMonth() + 1;
     const day = this.state.now.getDate(); 
     const currentMoon = getMoonPhase(year, month, day);
 

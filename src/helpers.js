@@ -1,4 +1,4 @@
-export function getMoonPhase(year, month, day) {
+function getNumber (year, month, day) {
   let c = 0;
   let e = 0;
   let jd = 0;
@@ -16,15 +16,83 @@ export function getMoonPhase(year, month, day) {
   jd /= 29.5305882; 
   b = parseInt(jd); 
   jd -= b; 
-  b = Math.round(jd * 8);
-  
-  if (b >= 8 ) {
-      b = 0; 
+
+  return jd * 8; 
+} 
+
+function getClosestNumber (arr, ref) {
+  if (ref === 8) {
+    arr = arr.map(num => num < 5 ? num + 8 : num)
+  }
+
+  arr.sort((a, b) => {
+    return Math.abs(ref - a) - Math.abs(ref - b);
+  })
+
+  return arr[0];
+}
+
+function isItFullOrNew (num, currentDate, phase) {
+  const start = new Date(currentDate);
+  const end = new Date(currentDate); 
+
+  start.setDate(start.getDate() - 5);
+  end.setDate(end.getDate() + 5);
+
+  const arrayOfPhases = []; 
+
+  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+    const newD = new Date(d); 
+    const newYear = newD.getFullYear();
+    const newMonth = newD.getMonth() + 1;
+    const newDay = newD.getDate(); 
+    const moonNumber = getNumber(newYear, newMonth, newDay);
+    arrayOfPhases.push(moonNumber); 
+  }
+
+  let closestNum; 
+
+  if (phase === 'full') {
+    closestNum = getClosestNumber(arrayOfPhases, 4); 
+    if (num < closestNum) {
+      return 3; 
+    } else if (num === closestNum) {
+      return 4; 
+    } else {
+      return 5; 
+    }
+  } else if (phase === 'new') {
+    closestNum = getClosestNumber(arrayOfPhases, 8);
+    if (num < 5) {
+      num += 8; 
+    }
+    if (num < closestNum) {
+      return 7;
+    } else if (num === closestNum) {
+      return 0;
+    } else {
+      return 1; 
+    }
+  }
+}
+
+export function getMoonPhase (year, month, day) {
+  const num = getNumber(year, month, day); 
+  const currentDate = new Date(year, month-1, day);
+
+  let roundedNum;
+
+  if (num >= 7.5 || num <= 0.5) {
+    roundedNum = isItFullOrNew(num, currentDate, 'new');
+  } else if (num >= 3.5 && num <= 4.5) {
+    roundedNum = isItFullOrNew(num, currentDate, 'full');
+  } else {
+    roundedNum = Math.round(num);
   }
 
   let currentMoon; 
 
-  switch(b) {
+  switch(roundedNum) {
     case 0: 
       currentMoon = 'newMoon';
       break;
@@ -63,7 +131,7 @@ export function getNextMoon (now) {
   for (let d = start; d <= end; d.setDate(d.getDate() + 1)) {
     const newD = new Date(d); 
     const newYear = newD.getFullYear();
-    const newMonth = newD.getMonth();
+    const newMonth = newD.getMonth() + 1;
     const newDay = newD.getDate(); 
     const moonPhase = getMoonPhase(newYear, newMonth, newDay);
     const nextMoon = {};
@@ -75,7 +143,6 @@ export function getNextMoon (now) {
     }
   }
 }
-
 
 export function getFriendlyDate (date) {
   if (date === 1 || date === 21 || date === 31) {
