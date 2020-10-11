@@ -69,13 +69,31 @@ ul {
   background: url('assets/background-large.png') #35396A no-repeat;
   background-position: top; 
   background-size: 100% 250px;
-  padding: 16vw 30px 30px 30px; 
+  padding-top: 16vw; 
   border-radius: 20px; 
   margin-left: 30px; 
   margin-right: 30px;
   box-shadow: 0 20px 40px 0 rgba(0,0,0,0.1); 
   display: flex; 
   flex-direction: column;
+}
+
+.mooncard__wrapper h2,
+.mooncard__wrapper p {
+  padding-right: 30px; 
+  padding-left: 30px; 
+}
+
+.mooncard__wrapper h3 {
+  padding: 10px 30px; 
+  font-size: 16px; 
+  font-weight: 400; 
+  background-color: #2C2F55; 
+  color: rgba(255,255,255,0.8);
+}
+
+.mooncard__wrapper p {
+  padding-bottom: 30px; 
 }
 
 .moon__wrapper {
@@ -98,6 +116,7 @@ ul {
 
 .card__nextmoon {
   margin-top: 30px; 
+  padding: 0; 
 }
 
 .nextmoon__main {
@@ -110,10 +129,16 @@ ul {
   font-size: 80px; 
   align-self: center; 
   display: flex;
+  padding-left: 10px; 
 }
 
 .nextmoon__text {
-  margin-left: 10px; 
+  margin-left: 10px;
+  padding: 30px; 
+  background-color: #2C2F55; 
+  border-top-right-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+  width: 100%;
 }
 
 /* greetings elements CSS */ 
@@ -411,4 +436,35 @@ ul {
 
 .footer a {
   color: #fff; 
+}
+
+.star {
+  border-radius: 50%;
+  width: 5px;
+  position: absolute;
+  height: 5px;
+  background: #fff;
+}
+
+.star-1 {
+  top: 80px;
+  left: 100px;
+  animation-delay: 1s;
+  animation: float 4s infinite alternate-reverse ease-in-out;
+
+}
+
+.star-2 {
+  top: 120px;
+  left: 200px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.25;
+  animation: float 3s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+  100% {
+    transform: translateY(7px);
+  }
 }
