@@ -21,9 +21,20 @@ const images = {
 
 function MoonCard (props) {
   const { moonPhase } = props; 
-  
+
   return (
     <div className='mooncard__wrapper'>
+      <div className='star star-1' />
+      <div className='star star-2' />
+      <div className='star star-3' />
+      <div className='star star-4' />
+      <div className='star star-5' />
+      <div className='star star-6' />
+      <div className='star star-7' />
+      <div className='star star-8' />
+      <div className='star star-9' />
+      <div className='star star-10' />
+      <div className='star star-11' />
       <div className='moon__wrapper'>
         <div 
           className='moon__image' 

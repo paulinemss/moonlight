@@ -76,12 +76,17 @@ ul {
   box-shadow: 0 20px 40px 0 rgba(0,0,0,0.1); 
   display: flex; 
   flex-direction: column;
+  position: relative;
 }
 
 .mooncard__wrapper h2,
 .mooncard__wrapper p {
   padding-right: 30px; 
   padding-left: 30px; 
+}
+
+.mooncard__wrapper h2 {
+  padding-top: 10px;
 }
 
 .mooncard__wrapper h3 {
@@ -109,7 +114,7 @@ ul {
   background-size: 100%;
   background-repeat: no-repeat; 
   position: absolute;
-  top: 40px; 
+  top: 0;
 }
 
 /* next moon elements CSS */
@@ -153,7 +158,7 @@ ul {
 }
 
 .greeting__username {
-  color: #F8C55A; 
+  color: #dec973; 
   margin-left: 5px; 
 }
 
@@ -161,10 +166,10 @@ ul {
   background: none;
   border: none;
   outline: none; 
-  color: #F8C55A;
+  color: #dec973;
   font-family: 'Noto Sans JP';
   font-size: 30px; 
-  border-bottom: 1px solid #F8C55A;
+  border-bottom: 1px solid #dec973;
   width: 200px; 
   margin-left: 5px; 
 }
@@ -325,7 +330,7 @@ ul {
 }
 
 .checked {
-  color: #F8C55A;
+  color: #dec973;
 }
 
 .userinput__btn {
@@ -445,21 +450,102 @@ ul {
 }
 
 .star-1 {
-  top: 80px;
-  left: 100px;
+  top: 30px;
+  left: 70px;
   animation-delay: 1s;
   animation: float 4s infinite alternate-reverse ease-in-out;
 
 }
 
 .star-2 {
-  top: 120px;
-  left: 200px;
+  top: 30px;
+  left: 170px;
   width: 8px;
   height: 8px;
   opacity: 0.25;
   animation: float 3s infinite alternate-reverse ease-in-out;
 }
+
+.star-3 {
+  top: 100px;
+  left: 210px;
+  width: 8px;
+  height: 8px;
+  opacity: 0.7;
+  animation: float 3s infinite alternate-reverse ease-in-out;
+}
+
+.star-4 {
+  top: 160px;
+  left: 160px;
+  width: 4px;
+  height: 4px;
+  animation-delay: 2s;
+  opacity: 0.25;
+  animation: float 5s infinite alternate-reverse ease-in-out;
+}
+
+.star-5 {
+  left: 480px;
+  top: 0; 
+  width: 5px;
+  height: 5px;
+  opacity: 0.25;
+  animation: float 6s infinite alternate-reverse ease-in-out;
+}
+
+.star-6 {
+  top: 130px;
+  left: 40px;
+  height: 5px; 
+  width: 5px; 
+  opacity: 0.8;
+  animation: float 6s infinite alternate-reverse ease-in-out;
+}
+
+.star-7 {
+  top: 50px;
+  left: 520px;
+  height: 5px; 
+  width: 5px; 
+  opacity: 0.8;
+  animation-delay: 2s;
+  animation: float 5s infinite alternate-reverse ease-in-out;
+}
+
+.star-8 {
+  top: 30px;
+  left: 620px;
+  height: 8px; 
+  width: 8px; 
+  opacity: 0.5;
+  animation: float 5s infinite alternate-reverse ease-in-out;
+}
+
+.star-9 {
+  top: 90px;
+  left: 120px;
+  height: 5px; 
+  width: 5px; 
+  opacity: 0.5;
+  animation: float 5s infinite alternate-reverse ease-in-out;
+}
+
+.star-10 {
+  top: 0; 
+  left: 280px;
+  animation: float 4s infinite alternate-reverse ease-in-out;
+}
+
+.star-11 {
+  top: 90px;
+  left: 590px;
+  height: 5px; 
+  width: 5px; 
+  opacity: 0.8;
+  animation: float 5s infinite alternate-reverse ease-in-out;
+}
+
 
 @keyframes float {
   100% {

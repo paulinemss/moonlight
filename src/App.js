@@ -34,8 +34,6 @@ class App extends React.Component {
 
     return (
       <div className='app'>
-        <div className='star star-1' />
-        <div className='star star-2' />
         <div className='column column__moon'>
           <MoonCard
             moonPhase={this.state.moonPhase}
