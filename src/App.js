@@ -6,6 +6,7 @@ import NextMoon from './components/NextMoon';
 import TimeWeather from './components/TimeWeather'; 
 import data from './data/moon';
 import { getMoonPhase } from './helpers';
+import { TiHeartOutline } from 'react-icons/ti';
 
 class App extends React.Component {
   constructor (props) {
@@ -36,7 +37,9 @@ class App extends React.Component {
         <div className='star star-1' />
         <div className='star star-2' />
         <div className='column column__moon'>
-          <MoonCard>
+          <MoonCard
+            moonPhase={this.state.moonPhase}
+          >
             <h2>{data[this.state.moonPhase]["name"]}</h2>
             <h3>Focus: {data[this.state.moonPhase]["focus"]}</h3>
             <p>{data[this.state.moonPhase]["description"]}</p>
@@ -64,13 +67,13 @@ class App extends React.Component {
             </div>
           </div>
           <div className='footer'>
-            <a 
+            Built with <TiHeartOutline /> by <a 
               href='https://github.com/paulinemss' 
               rel='noopener noreferrer' 
               target='_blank'
             >
-              @ 2020 Pauline Massé.
-            </a> All Rights Reserved.
+              Pauline Massé
+            </a>.
           </div>
         </div>
       </div>

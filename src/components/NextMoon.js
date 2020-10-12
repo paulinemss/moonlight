@@ -1,7 +1,13 @@
 import React from 'react';
 import { getNextMoon } from '../helpers';
 import data from '../data/moon';
-import { WiMoonNew, WiMoonFull } from "react-icons/wi";
+import newMoon from '../assets/newMoon.png';
+import fullMoon from '../assets/fullMoon.png';
+
+const images = {
+  newMoon,
+  fullMoon
+}
 
 function NextMoon (props) {
   const { now } = props; 
@@ -11,11 +17,12 @@ function NextMoon (props) {
 
   return (
     <div className='nextmoon__main'>
-      <div className='nextmoon__icon' >
-        {nextMoonPhase === 'newMoon'
-          ? <WiMoonNew />
-          : <WiMoonFull />
-        } 
+      <div className='nextmoon__iconwrapper'>
+        <img 
+          className='nextmoon__icon' 
+          src={images[nextMoonPhase]}
+          alt='small moon icon'
+        />
       </div>
       <div className='nextmoon__text'>
         <h3>

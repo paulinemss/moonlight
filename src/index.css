@@ -85,7 +85,7 @@ ul {
 }
 
 .mooncard__wrapper h3 {
-  padding: 10px 30px; 
+  padding: 20px 30px; 
   font-size: 16px; 
   font-weight: 400; 
   background-color: #2C2F55; 
@@ -103,11 +103,11 @@ ul {
 }
 
 .moon__image {
-  width: 30vw;
-  height: 30vw; 
-  background: url('assets/full-moon.png') no-repeat;
+  width: 29vw;
+  height: 29vw; 
   background-position: top; 
-  background-size: 100%; 
+  background-size: 100%;
+  background-repeat: no-repeat; 
   position: absolute;
   top: 40px; 
 }
@@ -124,17 +124,18 @@ ul {
   align-items: center;
 }
 
-.nextmoon__icon {
-  color: #F8C55A; 
-  font-size: 80px; 
-  align-self: center; 
-  display: flex;
-  padding-left: 10px; 
+.nextmoon__iconwrapper {
+  display: flex; 
+  align-items: center;
+}
+
+.nextmoon__icon { 
+  height: 100px;
 }
 
 .nextmoon__text {
-  margin-left: 10px;
-  padding: 30px; 
+  margin-left: 0px;
+  padding: 20px; 
   background-color: #2C2F55; 
   border-top-right-radius: 20px; 
   border-bottom-right-radius: 20px; 
@@ -238,8 +239,7 @@ ul {
 /* time and weather elements CSS */
 
 .timeweather__main {
-  margin: 0 30px 30px 30px; 
-  width: 100%; 
+  padding: 0 30px 30px 30px; 
   display: flex; 
   justify-content: space-between;
 }
@@ -277,15 +277,10 @@ ul {
 /* activities elements CSS */ 
 
 .column__activities {
-  margin-right: 60px; 
-  width: 42%; 
+  width: 50%; 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-.card__activities {
-  width: 100%; 
 }
 
 .ps .ps__rail-x:hover, .ps .ps__rail-y:hover, .ps .ps__rail-x:focus, .ps .ps__rail-y:focus, .ps .ps__rail-x.ps--clicking, .ps .ps__rail-y.ps--clicking {
@@ -298,6 +293,7 @@ ul {
 
 .activity__all { 
   height: 16vh;
+  margin-top: -5px; 
 }
 
 .activity__line {
@@ -305,11 +301,11 @@ ul {
   align-items: flex-start;
   flex-direction: row;
   margin-bottom: 10px; 
+  margin-top: 5px; 
 }
 
 .checkbox__wrapper {
   display: flex;
-  margin-top: 4px;
   margin-right: 10px;
 }
 
@@ -428,15 +424,17 @@ ul {
 /* footer elements CSS */ 
 
 .footer {
-  margin-left: 30px; 
-  margin-bottom: 30px;
-  align-self: center; 
+  padding: 0 30px 30px 30px; 
+  align-self: flex-end; 
   font-size: 14px; 
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer a {
-  color: #fff; 
+  color: rgba(255, 255, 255, 0.7);
 }
+
+/* star elements CSS */ 
 
 .star {
   border-radius: 50%;
