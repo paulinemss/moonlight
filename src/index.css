@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 body {
   margin: 0;
@@ -41,6 +40,9 @@ ul {
 .app {
   display: flex; 
   padding: 40px 0; 
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto
 }
 
 .column {
@@ -56,7 +58,7 @@ ul {
   background: #35396A;
   padding: 30px; 
   border-radius: 20px; 
-  margin-left: 30px; 
+  margin-left: 60px; 
   margin-right: 30px;
   box-shadow: 0 20px 40px 0 rgba(0,0,0,0.1); 
   display: flex; 
@@ -71,7 +73,7 @@ ul {
   background-size: 100% 250px;
   padding-top: 16vw; 
   border-radius: 20px; 
-  margin-left: 30px; 
+  margin-left: 60px; 
   margin-right: 30px;
   box-shadow: 0 20px 40px 0 rgba(0,0,0,0.1); 
   display: flex; 
@@ -110,6 +112,7 @@ ul {
 .moon__image {
   width: 29vw;
   height: 29vw; 
+  max-width: 500px;
   background-position: top; 
   background-size: 100%;
   background-repeat: no-repeat; 
@@ -132,6 +135,7 @@ ul {
 .nextmoon__iconwrapper {
   display: flex; 
   align-items: center;
+  margin-left: -10px;
 }
 
 .nextmoon__icon { 
@@ -139,7 +143,7 @@ ul {
 }
 
 .nextmoon__text {
-  margin-left: 0px;
+  margin-left: -10px;
   padding: 20px; 
   background-color: #2C2F55; 
   border-top-right-radius: 20px; 
@@ -239,23 +243,27 @@ ul {
 .greeting__date {
   font-weight: 500; 
   margin-bottom: 0;
+  margin-top: 20px; 
+  opacity: 0.8;
 }
 
 /* time and weather elements CSS */
 
 .timeweather__main {
-  padding: 0 30px 30px 30px; 
+  padding: 0 30px; 
   display: flex; 
   justify-content: space-between;
+  margin-top: -30px; 
 }
 
-.timeweather__clock {
-  font-size: 35px; 
-  font-family: 'IBM Plex Mono', monospace;
+.timeweather__clock h2 {
+  font-weight: 500; 
+  opacity: 0.8;
 }
 
 .timeweather__wrapper {
-  margin-top: -30px; 
+  margin-top: -100px;  
+  position: relative;
 }
 
 .timeweather__temp {
@@ -264,22 +272,30 @@ ul {
 }
 
 .timeweather__icon {
-  filter: grayscale(100%);
-  width: 65px;
-  height: 65px;  
+  font-size: 150px;  
+  margin-right: 40px;
 }
 
 .timeweather__degrees {
-  font-size: 28px;
-  margin-left: 10px; 
-  font-family: 'IBM Plex Mono', monospace;
-}
-
-.timeweather__location {
-  font-size: 14px; 
+  font-size: 22px;
+  position: absolute;
+  background: #6369b0; 
+  box-shadow: 0 10px 40px rgba(255,255,255,0.1); 
+  width: 50px;
+  height: 50px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; 
+  left: 80px; 
+  top: 100px; 
 }
 
 /* activities elements CSS */ 
+
+.card__activities {
+  margin: -20px 60px 0 30px; 
+}
 
 .column__activities {
   width: 50%; 
@@ -429,7 +445,7 @@ ul {
 /* footer elements CSS */ 
 
 .footer {
-  padding: 0 30px 30px 30px; 
+  padding: 0 70px 30px 30px; 
   align-self: flex-end; 
   font-size: 14px; 
   color: rgba(255, 255, 255, 0.7);

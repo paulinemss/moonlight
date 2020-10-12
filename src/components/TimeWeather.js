@@ -1,4 +1,18 @@
 import React from 'react';
+import { WiDaySunny,
+WiNightClear,
+WiDayCloudy,
+WiNightAltCloudy,
+WiCloud,
+WiCloudy,
+WiHail,
+WiNightHail,
+WiDayRain,
+WiNightAltRain,
+WiDayThunderstorm,
+WiNightThunderstorm,
+WiSnow,
+WiFog } from 'react-icons/wi';
 
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -89,25 +103,37 @@ class TimeWeather extends React.Component {
     return (
       <div className='timeweather__main'>
         <div className='timeweather__clock'>
-          {hour}:{minute}:{second}
+          <h2>{hour}:{minute}:{second}</h2>
         </div>
         <div className='timeweather__weather'>
           {error && <div>Error: {error.message}</div>}
           {!isLoaded && <div>Loading...</div>}
           {items && currentWeather && <div className='timeweather__wrapper'>
             <div className='timeweather__temp'>
-              <img 
-                className='timeweather__icon'
-                src={`http://openweathermap.org/img/wn/${currentWeather.icon}@2x.png`}
-                alt='weather icon'
-              />
+              <div className='timeweather__icon'>
+                {currentWeather.icon === '01d' && <WiDaySunny />}
+                {currentWeather.icon === '01n' && <WiNightClear />}
+                {currentWeather.icon === '02d' && <WiDayCloudy />}
+                {currentWeather.icon === '02n' && <WiNightAltCloudy />}
+                {currentWeather.icon === '03d' && <WiCloud />}
+                {currentWeather.icon === '03n' && <WiCloud />}
+                {currentWeather.icon === '04d' && <WiCloudy />}
+                {currentWeather.icon === '04n' && <WiCloudy />}
+                {currentWeather.icon === '09d' && <WiHail />}
+                {currentWeather.icon === '09n' && <WiNightHail />}
+                {currentWeather.icon === '10d' && <WiDayRain />}
+                {currentWeather.icon === '10n' && <WiNightAltRain />}
+                {currentWeather.icon === '11d' && <WiDayThunderstorm />}
+                {currentWeather.icon === '11n' && <WiNightThunderstorm />}
+                {currentWeather.icon === '13d' && <WiSnow />}
+                {currentWeather.icon === '13n' && <WiSnow />}
+                {currentWeather.icon === '50d' && <WiFog />}
+                {currentWeather.icon === '50n' && <WiFog />}
+              </div>
               <span className='timeweather__degrees'>
                 {Math.floor(items.main.temp - 273.15)}°
               </span>
             </div>
-            <span className='timeweather__location'>
-              {items.name}
-            </span>
           </div>}
         </div>
       </div>
@@ -116,3 +142,5 @@ class TimeWeather extends React.Component {
 }
 
 export default TimeWeather; 
+
+// src={`http://openweathermap.org/img/wn/${currentWeather.icon}@4x.png`}
