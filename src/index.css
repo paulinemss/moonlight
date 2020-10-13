@@ -6,7 +6,7 @@ body {
   min-height: 100vh; 
   font-family: 'Noto Sans JP';
   color: #fff;
-  overflow: hidden;  
+  overflow: auto;  
 }
 
 /* default settings */
@@ -71,7 +71,7 @@ ul {
   background: url('assets/background-large.png') #35396A no-repeat;
   background-position: top; 
   background-size: 100% 250px;
-  padding-top: 16vw; 
+  padding-top: 34vh; 
   border-radius: 20px; 
   margin-left: 60px; 
   margin-right: 30px;
@@ -113,6 +113,7 @@ ul {
   width: 29vw;
   height: 29vw; 
   max-width: 500px;
+  min-width: 350px; 
   background-position: top; 
   background-size: 100%;
   background-repeat: no-repeat; 
@@ -123,7 +124,8 @@ ul {
 /* next moon elements CSS */
 
 .card__nextmoon {
-  margin-top: 30px; 
+  margin-top: 30px;
+  margin-bottom: 0;  
   padding: 0; 
 }
 
@@ -566,5 +568,53 @@ ul {
 @keyframes float {
   100% {
     transform: translateY(7px);
+  }
+}
+
+/* mobile responsive website */
+
+.large-screen {
+  display: flex;
+}
+
+.small-screen {
+  display: none; 
+}
+
+@media only screen and (max-width: 1520px) {
+  .moon__image {
+    top: 2%; 
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .large-screen {
+    display: none;
+  }
+  .small-screen {
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+  .column {
+    width: 100%;
+    max-width: 100%; 
+  }
+  .mooncard__wrapper{
+    margin: -20px 30px 0 30px; 
+  }
+  .card__wrapper {
+    margin-left: 30px;
+  }
+  .card__activities {
+    margin: 40px 30px 30px 30px; 
+  }
+  .card__nextmoon {
+    margin-top: 50px; 
+  }
+  .footer {
+    align-self: center; 
+    padding-bottom: 0; 
   }
 }
