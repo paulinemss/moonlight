@@ -87,9 +87,9 @@ class Greeting extends React.Component {
           <span>{hello},</span>
           {this.state.username !== ''
             ? <>
-                <span className='greeting__username'> 
+                <div><span className='greeting__username'> 
                   {this.state.username}
-                </span>.
+                </span>.</div>
                 <button
                   onClick={this.toggleEditWrapper}
                   className={`toggle__button ${this.state.editWrapper}`}

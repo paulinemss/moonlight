@@ -587,6 +587,60 @@ ul {
   }
 }
 
+@media only screen and (max-width: 1490px) {
+  .timeweather__icon {
+    margin-top: 10px; 
+  }
+  .timeweather__degrees {
+    top: 110px; 
+  }
+}
+
+@media only screen and (max-width: 1273px) {
+  .activity__all {
+    height: 22vh; 
+  }
+}
+
+@media only screen and (max-width: 1245px) {
+  .greeting__title {
+    font-size: 25px; 
+  }
+  .greeting__input {
+    font-size: 25px; 
+  }
+  .timeweather__icon {
+    margin-top: 30px; 
+  }
+  .timeweather__degrees {
+    top: 130px; 
+  }
+}
+
+@media only screen and (max-width: 1076px) {
+  .greeting__title {
+    position: relative; 
+  }
+  .activity__all {
+    height: 24vh; 
+  }
+  .edit__wrapper {
+    position: absolute;
+    left: 250px; 
+    top: 45px; 
+    z-index: 500;
+  }
+  .edit__wrapper:before {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #6369b0;
+    margin-right: -15px;
+    left: 65px; 
+    margin-top: -12px;
+    position: absolute;
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .large-screen {
     display: none;
@@ -616,5 +670,101 @@ ul {
   .footer {
     align-self: center; 
     padding-bottom: 0; 
+  }
+  .activity__all {
+    height: 16vh; 
+  }
+  .greeting__title {
+    font-size: 32px; 
+  }
+  .greeting__input {
+    font-size: 32px; 
+  }
+  .toggle__button {
+    margin-top: 10px;
+  }
+  .edit__wrapper {
+    left: 335px; 
+    top: 50px; 
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .activity__all {
+    height: 22vh; 
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .moon__image {
+    width: 350px;
+    height: 350px; 
+  }
+  .greeting__title {
+    display: flex; 
+    flex-direction: column;
+  }
+  .greeting__username {
+    margin-left: 0; 
+  }
+  .toggle__button {
+    margin-left: 0; 
+  }
+  .edit__wrapper {
+    left: 40px; 
+    top: 102px; 
+  }
+  .edit__wrapper:before {
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent; 
+    border-right: 6px solid #6369b0; 
+    margin-right: -15px;
+    margin-left: 5px; 
+    margin-top: 8px; 
+    position: absolute;
+    left: -2px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .nextmoon__icon {
+    height: 70px; 
+  }
+  .timeweather__icon {
+    font-size: 100px; 
+    margin-top: -30px;
+    margin-right: 0;  
+  }
+  .timeweather__degrees {
+    top: 70px; 
+    left: 20px; 
+    font-size: 18px; 
+  }
+  .timeweather__clock {
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .timeweather__weather {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .nextmoon__main {
+    flex-direction: column;
+  }
+  .nextmoon__iconwrapper {
+    margin: 0; 
+    height: 100px; 
+    align-items: center;
+  }
+  .nextmoon__text {
+    width: auto; 
+    margin: 0; 
+    border-radius: 0; 
+    border-bottom-left-radius: 20px; 
+    border-bottom-right-radius: 20px; 
   }
 }
