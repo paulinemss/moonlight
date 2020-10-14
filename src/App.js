@@ -50,7 +50,7 @@ class App extends React.Component {
               <h3>Focus: {data[this.state.moonPhase]["focus"]}</h3>
               <p>{data[this.state.moonPhase]["description"]}</p>
             </MoonCard>
-            <div className='card__wrapper card__activities'>
+            <div className='card__wrapper card__activities selector1'>
                 <Activities 
                   now={this.state.now}
                   moonPhase={this.state.moonPhase}
@@ -74,7 +74,7 @@ class App extends React.Component {
             </div>
         </div>
 
-        <div className='large-screen'>
+        <div className='large-screen'>        
           <div className='column column__moon'>
             <MoonCard
               moonPhase={this.state.moonPhase}
