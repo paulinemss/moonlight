@@ -20,7 +20,7 @@ function getNumber (year, month, day) {
   return jd * 8; 
 } 
 
-function getClosestNumber (arr, ref) {
+export function getClosestNumber (arr, ref) {
   if (ref === 8) {
     arr = arr.map(num => num < 5 ? num + 8 : num)
   }
