@@ -1,3 +1,7 @@
+<a href="https://moon-light.netlify.app/">
+  <img width="150" height="150" src="/src/assets/readme.png">
+</a>
+
 # Moonlight
 
 > Stay connected to the Moon through a beautiful, simple and inspiring homepage. 
