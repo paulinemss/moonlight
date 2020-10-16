@@ -125,18 +125,22 @@ export function getMoonPhase (year, month, day) {
 }
 
 export function getNextMoon (now) {
+  const today = new Date(now);
+  const currentMoonPhase = getMoonPhase(today.getFullYear(), today.getMonth() + 1, today.getDate());
+
   const start = new Date(now);
   const end = new Date('01/01/2050');
 
   for (let d = start; d <= end; d.setDate(d.getDate() + 1)) {
     const newD = new Date(d); 
-    const newYear = newD.getFullYear();
-    const newMonth = newD.getMonth() + 1;
-    const newDay = newD.getDate(); 
-    const moonPhase = getMoonPhase(newYear, newMonth, newDay);
+    const moonPhase = getMoonPhase(newD.getFullYear(), newD.getMonth() + 1, newD.getDate());
     const nextMoon = {};
 
-    if (moonPhase === 'newMoon' || moonPhase === 'fullMoon') {
+    if (moonPhase === 'newMoon' && currentMoonPhase !== 'newMoon') {
+      nextMoon.phase = moonPhase; 
+      nextMoon.date = newD; 
+      return nextMoon; 
+    } else if (moonPhase === 'fullMoon' && currentMoonPhase !== 'fullMoon') {
       nextMoon.phase = moonPhase; 
       nextMoon.date = newD; 
       return nextMoon; 
