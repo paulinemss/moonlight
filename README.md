@@ -1,5 +1,5 @@
 <a href="https://moon-light.netlify.app/">
-  <img width="150" height="150" src="/src/assets/readme.png">
+  <img width="100" height="100" src="/src/assets/readme.png">
 </a>
 
 # Moonlight
