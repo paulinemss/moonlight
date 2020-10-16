@@ -9,7 +9,8 @@ class Greeting extends React.Component {
     this.state = {
       value: '',
       username: localStorage.getItem('username') || '',
-      editWrapper: ''
+      editWrapper: '',
+      hello: ''
     }
 
     this.wrapperRef = React.createRef();
@@ -61,6 +62,8 @@ class Greeting extends React.Component {
 
   componentDidMount() {
     document.addEventListener('mousedown', this.handleClickOutside);
+    const hello = getGreeting(this.props.now.getHours()); 
+    this.setState({ hello }); 
   }
 
   componentWillUnmount() {
@@ -76,15 +79,12 @@ class Greeting extends React.Component {
     const month = months[now.getMonth()];
     const day = days[now.getDay()];
     const date = now.getDate();
-    const hour = now.getHours(); 
-
     const friendlyDate = getFriendlyDate(date);
-    const hello = getGreeting(hour); 
 
     return (
       <div className='greeting__wrapper'>
         <h1 className='greeting__title' ref={this.wrapperRef}>
-          <span>{hello},</span>
+          <span>{this.state.hello},</span>
           {this.state.username !== ''
             ? <>
                 <div><span className='greeting__username'> 
